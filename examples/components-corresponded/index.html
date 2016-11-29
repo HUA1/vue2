@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>vue2.0组件间通信</title>
+<link rel="stylesheet" href="../../css/bootstrap.min.css" />
+<script type="text/javascript" src="../../js/vue.min.js"></script>
+</head>
+<body>
+<div class="container-fluid" id="father">
+	<div class="container">
+		<div class="row">
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-success">父组件</li>
+				<li class="list-group-item">您的姓名是：<b class="text-danger">{{name}}</b><br></li>
+				<li class="list-group-item">您的年龄是：<b class="text-danger">{{births}}</b></li>
+			</ul>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">子组件A</div>
+					<div class="panel-body">
+
+						<ybxs ref="names"></ybxs>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">子组件B</div>
+					<div class="panel-body">
+
+						<ybxs-brother ref="birth" :pname="name"></ybxs-brother>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="components.js"></script>
+<script>
+var father = new Vue({
+	el:'#father',
+	data:{
+		name:'',
+		births:''
+	}
+});
+</script>
+</body>
+</html>
